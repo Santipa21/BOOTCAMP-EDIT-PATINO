@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Components</title>
+    <script src="components/Cabecera.js"></script>
+    <script src="components/Contador.js"></script>
+    <script src="components/ClimaUsuario.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            color: #f8fafc;
+            background:
+                radial-gradient(circle at 15% 15%, rgba(20, 184, 166, 0.2), transparent 28%),
+                radial-gradient(circle at 85% 10%, rgba(59, 130, 246, 0.22), transparent 30%),
+                linear-gradient(135deg, #07111f 0%, #0f172a 48%, #111827 100%);
+        }
+
+        main {
+            width: min(1120px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 22px 0 42px;
+        }
+
+        .components-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(260px, 1fr));
+            gap: 22px;
+            align-items: stretch;
+        }
+
+        mi-contador,
+        clima-usuario {
+            min-width: 0;
+        }
+
+        @media (max-width: 720px) {
+            main {
+                width: min(100% - 20px, 520px);
+                padding-top: 12px;
+            }
+
+            .components-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <app-header></app-header>
+        <section class="components-grid" aria-label="Componentes interactivos">
+            <mi-contador></mi-contador>
+            <clima-usuario></clima-usuario>
+        </section>
+    </main>
+</body>
+
+</html>
